@@ -1,3 +1,5 @@
+// swift-tools-version:5.5
+
 import PackageDescription
 
 var sources = [
@@ -64,31 +66,24 @@ cSettings.append(
 #endif
 
 let package = Package(
-    name: "LlamaKit",
+    name: "llama",
     platforms: [
-        .macOS(.v15),
-        .iOS(.v18)
+        .macOS(.v12),
+        .iOS(.v14),
+        .watchOS(.v4),
+        .tvOS(.v14)
    ],
     products: [
         .library(
-            name: "LlamaKit",
-            targets: ["LlamaKit"]),
+            name: "llama",
+            targets: ["llama"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "LlamaKit",
-            dependencies: ["llama"],
-            path: "Sources/LlamaKit",
-            swiftSettings: [
-                .unsafeFlags(["-Onone"], .when(configuration: .release))
-            ]
-        ),
-        .target(
             name: "llama",
-            path: "Sources/llama",
+            path: ".",
             exclude: [
-                "build",
                 "cmake",
                 "examples",
                 "scripts",
@@ -106,10 +101,6 @@ let package = Package(
                 .unsafeFlags(["-Onone"], .when(configuration: .release))
             ],
             linkerSettings: linkerSettings
-        ),
-        .testTarget(
-            name: "LlamaKitTests",
-            dependencies: ["LlamaKit"]
         )
     ],
     cxxLanguageStandard: .cxx17
