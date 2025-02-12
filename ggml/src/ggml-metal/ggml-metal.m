@@ -521,7 +521,7 @@ static struct ggml_backend_metal_context * ggml_metal_init(ggml_backend_dev_t de
     {
         NSBundle * bundle = nil;
 #ifdef SWIFT_PACKAGE
-        bundle = SWIFTPM_MODULE_BUNDLE;
+        // bundle = SWIFTPM_MODULE_BUNDLE;
 #else
         bundle = [NSBundle bundleForClass:[GGMLMetalClass class]];
 #endif
