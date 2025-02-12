@@ -34,7 +34,7 @@ var sources = [
     "ggml/src/ggml-cpu/ggml-cpu-aarch64.cpp",
     "ggml/src/ggml-cpu/ggml-cpu-hbm.cpp",
     "ggml/src/ggml-cpu/ggml-cpu-quants.c",
-    "ggml/src/ggml-cpu/ggml-cpu-traits.cpp"
+    "ggml/src/ggml-cpu/ggml-cpu-traits.cpp",
 ]
 
 var resources: [Resource] = []
@@ -91,8 +91,7 @@ let package = Package(
                 "models",
                 "tests",
                 "CMakeLists.txt",
-                "Makefile",
-                "ggml/src/ggml-metal/ggml-metal.metal"
+                "Makefile"
             ],
             sources: sources,
             resources: resources,
